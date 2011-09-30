@@ -3,6 +3,7 @@
 # Webmachine
 
 * [github.com/seancribbs/webmachine-ruby](https://github.com/seancribbs/webmachine-ruby)
+* [github.com/seancribbs/rubyconf-webmachine](https://github.com/seancribbs/rubyconf-webmachine)
 * [ruby-webmachine.heroku.com](http://ruby-webmachine.heroku.com)
 
 !SLIDE bullets
