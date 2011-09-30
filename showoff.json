@@ -1,0 +1,9 @@
+{
+  "name": "Resources, For Real This Time", 
+  "sections": [ 
+    {"section":"intro"},
+    {"section":"history"},
+    {"section":"webmachine"},
+    {"section":"examples"}
+  ]
+}

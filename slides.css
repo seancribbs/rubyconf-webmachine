@@ -1,0 +1,25 @@
+body {
+   background-color: black;
+}
+
+.content {
+   font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+h1, h2, h3 {
+   font-family: Georgia, Times, serif;
+}
+
+.title h1 {
+   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAIElEQVQIHWNMrLzlw4ADsIDE57WpbsEmz4RNECY2EJIA5doEDY8lKVEAAAAASUVORK5CYII=) repeat;
+   padding-bottom: 2px
+}
+
+a, a:visited, a:hover {
+   text-decoration: none;
+   color: #3A4A7E;
+}
+
+pre {
+   font-family: "DejaVu Sans Mono", Monaco, monospaced;
+}

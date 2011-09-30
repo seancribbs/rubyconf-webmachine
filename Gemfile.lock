@@ -1,0 +1,67 @@
+GIT
+  remote: git://github.com/seancribbs/ripple.git
+  revision: 634df0220a8151329940ba43867695e3ca1d99ca
+  specs:
+    riak-client (1.0.0.pre)
+      beefcake (= 0.3.2)
+      builder (>= 2.1.2)
+      i18n (>= 0.4.0)
+      multi_json (~> 1.0.0)
+    ripple (1.0.0.pre)
+      activemodel (< 3.2.0, >= 3.0.0)
+      activesupport (< 3.2.0, >= 3.0.0)
+      riak-client (~> 1.0.0.pre)
+      tzinfo
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activemodel (3.1.0)
+      activesupport (= 3.1.0)
+      bcrypt-ruby (~> 3.0.0)
+      builder (~> 3.0.0)
+      i18n (~> 0.6)
+    activesupport (3.1.0)
+      multi_json (~> 1.0)
+    bcrypt-ruby (3.0.1)
+    beefcake (0.3.2)
+    blankslate (2.1.2.4)
+    bluecloth (2.1.0)
+    builder (3.0.0)
+    gli (1.3.3)
+    i18n (0.6.0)
+    json (1.6.1)
+    multi_json (1.0.3)
+    nokogiri (1.5.0)
+    parslet (1.2.3)
+      blankslate (~> 2.0)
+    pdfkit (0.5.2)
+    rack (1.3.3)
+    rdiscount (1.6.8)
+    rmagick (2.13.1)
+    showoff (0.7.0)
+      bluecloth
+      gli (>= 1.3.2)
+      json
+      nokogiri
+      parslet
+      sinatra
+    sinatra (1.2.6)
+      rack (~> 1.1)
+      tilt (< 2.0, >= 1.2.2)
+    tilt (1.3.3)
+    tzinfo (0.3.29)
+    webmachine (0.2.0)
+      i18n (>= 0.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pdfkit
+  rdiscount
+  riak-client!
+  ripple!
+  rmagick
+  showoff
+  webmachine
