@@ -5,10 +5,10 @@
 
 !SLIDE bullets
 
-# CGI
+# CGI, SCGI, FCGI
 
 * Common Gateway Interface ('90s)
-* shell, setenv, exec
+* shell/fork, setenv, exec
 * standard I/O
 
 !SLIDE
@@ -34,21 +34,6 @@
         cgi.body { "Hello, world!" }
       }
     }
-
-!SLIDE smaller
-
-# CGI
-
-    @@@ruby
-    if ENV['HTTP_ACCEPT'] =~ /xml/i
-      puts 'Content-Type: text/xml'
-      puts
-      puts '<?xml version="1.0"?><doc><foo>bar</foo></doc>'
-    else
-      puts 'Content-Type: text/plain'
-      puts
-      puts "foo: bar"
-    end
 
 !SLIDE bullets
 
@@ -129,7 +114,7 @@
 
 !SLIDE bullets incremental
 
-# Rack + Sinatra
+# Sinatra
 
 * Rails too heavy, let's go raw.
 * Built on Rack
@@ -137,7 +122,7 @@
 
 !SLIDE
 
-# Rack + Sinatra
+# Sinatra (+ Rack)
 
     @@@ruby
     use Rack::ContentType, "application/json"

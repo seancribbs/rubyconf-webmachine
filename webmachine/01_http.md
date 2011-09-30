@@ -1,6 +1,6 @@
 !SLIDE
 
-# What can we do to make this better?
+# What can we do <br/>to make this better?
 
 !SLIDE
 
@@ -10,7 +10,7 @@
  style="max-width:100%;max-height:75%"
  alt="http decision diagram" />
 
-!SLIDE bullets incremental
+!SLIDE bullets
 
 # Hard HTTP Questions
 
@@ -35,16 +35,11 @@
 
 # Encapsulate those hard decisions and reuse them.
 
+!SLIDE
+
+# Let's shape our <br/>applications like HTTP,<br/> with Resources.
+
 !SLIDE bullets incremental
-
-# What is a Resource?
-## (RFC 2616)
-
-* "A network **data object or service** that can be identified by a **URI,**"
-* "...may be available in **multiple representations**,"
-* "...or **vary** in other ways."
-
-!SLIDE bullets
 
 # A Resource is:
 
@@ -52,7 +47,3 @@
 * Identified by URI
 * Representations
 * Other Variances/Properties
-
-!SLIDE
-
-# Let's shape our applications like HTTP, with Resources.

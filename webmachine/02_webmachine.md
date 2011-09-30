@@ -48,15 +48,6 @@ max-height: 100%" alt="decision diagram" />
 * Well-defined interface to HTTP logic
 * URIs map to resource families
 
-!SLIDE bullets incremental
-
-# Simple dispatching
-
-* Break path into segments
-* Bind segments to symbols
-* Trailing "wildcard" to match variable segments
-* Route-specific "static" bindings
-
 !SLIDE
 
 # 36 Resource "Callbacks"
@@ -113,3 +104,12 @@ variances
 </td>
 </tr>
 </table>
+
+!SLIDE bullets incremental
+
+# Simple dispatching
+
+* Break path into segments
+* Bind segments to symbols
+* Trailing "wildcard" to match variable segments
+* Route-specific "static" bindings

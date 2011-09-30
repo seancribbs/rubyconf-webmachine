@@ -1,10 +1,18 @@
 !SLIDE title
 
 # Resources, <br /> For Real This Time
-## [Sean Cribbs](http://twitter.com/seancribbs)
+## [@seancribbs](http://twitter.com/seancribbs)
 
 RubyConf NOLA <br />
 30 September 2011 
+
+!SLIDE
+
+![basho](basho.jpg)
+
+<img src="riak-logo.png" style="height: 150px; width: 394px" alt="riak"/>
+
+![erlang](erlang-logo.png)
 
 !SLIDE
 
@@ -17,7 +25,6 @@ RubyConf NOLA <br />
 !SLIDE
 
 ## "Here's how we did X..."
-
 ## "We tried to do Y, but our code was brittle..."
 
 !SLIDE
