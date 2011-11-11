@@ -1,3 +1,25 @@
+!SLIDE 
+
+# We have a problem.
+
+!SLIDE
+
+# CGI/WEBrick
+
+![Almost as cool as my Perl from 1998.](perl.jpg)
+
+!SLIDE
+
+# Rails
+
+![HTTP? That's so last decade. I use HTML5 and Websockets](railskitty2.jpg)
+
+!SLIDE
+
+# Sinatra/Rack
+
+![I don't always use HTTP, but when I do, it's different every time.](rackman.jpg)
+
 !SLIDE
 
 # What can we do <br/>to make this better?
@@ -19,13 +41,9 @@
 * Is the response cacheable?
 * Did the resource move?
 
-!SLIDE bullets
+!SLIDE
 
-# Hard HTTP Questions
-
-* Can your middleware answer those questions?
-* Your "app"?
-* Where does that logic live?
+# Does your framework help you answer those questions?
 
 !SLIDE
 
@@ -41,7 +59,7 @@
 
 !SLIDE bullets incremental
 
-# A Resource is:
+# A Resource is: (RFC 2616)
 
 * Data or Service
 * Identified by URI

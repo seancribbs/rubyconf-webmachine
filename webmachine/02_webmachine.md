@@ -104,12 +104,3 @@ variances
 </td>
 </tr>
 </table>
-
-!SLIDE bullets incremental
-
-# Simple dispatching
-
-* Break path into segments
-* Bind segments to symbols
-* Trailing "wildcard" to match variable segments
-* Route-specific "static" bindings

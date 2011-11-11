@@ -21,9 +21,11 @@
 # Map URI to Resource
 
     @@@ruby
-    Webmachine::Dispatcher.add_route [], PageResource
-    Webmachine.run
+    Webmachine.routes do
+      add [], PageResource
+    end.run
 
+#### 1
 !SLIDE smaller
 
 # Create a layout
@@ -56,6 +58,7 @@
       $LAYOUT.result(binding)
     end
 
+#### 2
 !SLIDE small
 
 # Add a real model
@@ -80,9 +83,12 @@
       @page.present?
     end
 
-    Webmachine::Dispatcher.add_route [:slug], PageResource
-    Webmachine::Dispatcher.add_route [], PageResource, 
-            :slug => "__root"
+    Webmachine.routes do
+      add [:slug], PageResource
+      add [], PageResource, :slug => "__root"
+    end.run
+
+#### 3
 
 !SLIDE small
 
@@ -98,18 +104,25 @@
       @page.attributes.to_json
     end
 
+#### 4
+
 !SLIDE small
 
 # Conditional Requests
 
     @@@ruby
+    require 'digest/md5'
+    
     def last_modified
       @page.updated_at
     end
 
     def generate_etag
-      @page.robject.etag
+      Digest::MD5.hexdigest(@page.title + 
+                              @page.content)
     end
+
+#### 5
 
 !SLIDE smaller
 
@@ -117,7 +130,7 @@
 
     @@@ruby
     def allowed_methods
-      %W[GET HEAD PUT OPTIONS]
+      %W[GET HEAD PUT]
     end
 
     def content_types_accepted
@@ -132,19 +145,20 @@
       @page.update_attributes(attrs)
     end
 
+#### 6
+
 !SLIDE smaller
 
 # Authenticate PUTs
 
     @@@ruby
+    include Webmachine::Resource::Authentication
+    
     def is_authorized?(auth)
       request.method != 'PUT' ||
-        (auth =~ /^Basic (.*)$/i && check_basic_password($1)) ||
-        'Basic realm="Webmachine"'
+        basic_auth(auth) do |user,password|
+          user == 'sean' && password == 'password'
+        end
     end
 
-    private
-    def check_basic_password(creds)
-      creds.unpack('m*').first.split(':', 2) == 
-        %W[sean password]
-    end
+#### 7

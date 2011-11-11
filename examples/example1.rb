@@ -7,5 +7,6 @@ class PageResource < Webmachine::Resource
   end
 end
 
-Webmachine::Dispatcher.add_route [], PageResource
-Webmachine.run
+Webmachine.routes do
+  add [], PageResource
+end.run

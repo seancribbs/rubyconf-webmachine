@@ -6,16 +6,16 @@
 * [github.com/seancribbs/rubyconf-webmachine](https://github.com/seancribbs/rubyconf-webmachine)
 * [ruby-webmachine.heroku.com](http://ruby-webmachine.heroku.com)
 
-!SLIDE bullets
+!SLIDE
 
-# Acknowledgments
-
-* Justin Sheehy, Bryan Fink, Andy Gross
-* [github.com/basho/webmachine](https://github.com/basho/webmachine)
-* Ian Plosker, Bernd Ahlers
+![Y U NO 304](yuno.jpg)
 
 !SLIDE
 
-    GET /questions HTTP/1.1
+![Conditional Requests - 3 lines of code](successkid.jpg)
+
+!SLIDE
+
+    GET /preguntas HTTP/1.1
     Accept: */*
-    Accept-Language: en, x-ruby
+    Accept-Language: en, x-ruby, es;q=0.5

@@ -2,6 +2,7 @@ require 'rubygems'
 require 'ripple'
 require 'webmachine'
 require 'erb'
+require 'digest/md5'
 
 $LAYOUT = ERB.new(<<-CODE)
 <!DOCTYPE html>
@@ -20,11 +21,12 @@ end
 
 class PageResource < Webmachine::Resource
   def allowed_methods
-    %W[GET HEAD PUT OPTIONS]
+    %W[GET HEAD PUT]
   end
   
   def content_types_provided
-    [["text/html", :to_html],["application/json", :to_json]]
+    [["text/html", :to_html],
+     ["application/json", :to_json]]
   end
 
   def content_types_accepted
@@ -41,7 +43,7 @@ class PageResource < Webmachine::Resource
   end
 
   def generate_etag
-    @page.robject.etag
+    Digest::MD5.hexdigest(@page.title + @page.content)
   end
   
   def to_html
@@ -58,6 +60,7 @@ class PageResource < Webmachine::Resource
   end
 end
 
-Webmachine::Dispatcher.add_route [:slug], PageResource
-Webmachine::Dispatcher.add_route [], PageResource, :slug => "__root"
-Webmachine.run
+Webmachine.routes do
+  add [:slug], PageResource
+  add [], PageResource, :slug => "__root"
+end.run

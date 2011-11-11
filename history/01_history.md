@@ -1,15 +1,7 @@
 !SLIDE title
 
 # Ruby & HTTP
-## A Selective History
-
-!SLIDE bullets
-
-# CGI, SCGI, FCGI
-
-* Common Gateway Interface ('90s)
-* shell/fork, setenv, exec
-* standard I/O
+## A Short History
 
 !SLIDE
 
@@ -19,21 +11,6 @@
     puts "Content-Type: text/plain"
     puts
     puts "Hello, world!"
-
-!SLIDE
-
-# CGI
-
-    @@@ruby
-    require 'cgi'
-
-    cgi = CGI.new('html4')
-
-    cgi.out {
-      cgi.html {
-        cgi.body { "Hello, world!" }
-      }
-    }
 
 !SLIDE bullets
 
@@ -53,14 +30,6 @@
         response.body = "Hello, world!"
       end
     end
-
-!SLIDE bullets
-
-# Rails!
-
-* Yay, MVC!
-* Great for "web apps"!
-* Made Ruby "cool"!
 
 !SLIDE small
 
@@ -82,10 +51,7 @@
 
 # RAILS 1.2ZOMGREST!
 
-* A "world of resources"!
-* Easy APIs! Models are URLs!
-* respond_to!
-* *Only* 7 actions to remember!
+![ZOMGREST! Now I can respond_to all my friends!](railsgirl.jpg)
 
 !SLIDE
 
@@ -104,22 +70,6 @@
        end  
     end
 
-!SLIDE bullets incremental
-
-# Two Voices in the Wilderness
-
-* Scott Raymond - *Doing REST Right* (RailsConf '07)
-* Ben Scofield - *All I Really Need to Know I Learned by Writing My
-  Own Web Framework* (RubyConf '08)
-
-!SLIDE bullets incremental
-
-# Sinatra
-
-* Rails too heavy, let's go raw.
-* Built on Rack
-* URLs + Methods = Actions
-
 !SLIDE
 
 # Sinatra (+ Rack)
@@ -130,3 +80,33 @@
     get "/bar" do
       '{"hello":"world"}'
     end
+
+!SLIDE 
+
+# Rack: If you like it, put a middleware on it.
+
+![Beyonce](beyonce.jpg)
+
+!SLIDE small
+
+# Middleware
+
+    @@@ruby
+    class BroWare
+      def initialize(app)
+        @app = app
+      end
+      
+      def call(env)
+        status, headers, body = @app.call(env)
+        [
+         status, 
+         headers.merge('X-Hey-Bro' => 'cool story'), 
+         body
+        ]
+      end
+    end
+
+!SLIDE
+
+![cool story bro](coolstory.jpg)

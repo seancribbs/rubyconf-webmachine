@@ -29,6 +29,7 @@ class PageResource < Webmachine::Resource
   end
 end
 
-Webmachine::Dispatcher.add_route [:slug], PageResource
-Webmachine::Dispatcher.add_route [], PageResource, :slug => "__root"
-Webmachine.run
+Webmachine.routes do
+  add [:slug], PageResource
+  add [], PageResource, :slug => "__root"
+end.run

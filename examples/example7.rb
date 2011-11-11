@@ -2,6 +2,7 @@ require 'rubygems'
 require 'ripple'
 require 'webmachine'
 require 'erb'
+require 'digest/md5'
 
 $LAYOUT = ERB.new(<<-CODE)
 <!DOCTYPE html>
@@ -19,18 +20,19 @@ class Page
 end
 
 class PageResource < Webmachine::Resource
+  include Webmachine::Resource::Authentication
+  
   def is_authorized?(auth)
-    request.method != 'PUT' ||
-      (auth =~ /^Basic (.*)$/i && check_basic_password($1)) ||
-      'Basic realm="Webmachine"'
+    request.method != 'PUT' || basic_auth(auth){ |*args| args == %W[sean password] }
   end
   
   def allowed_methods
-    %W[GET HEAD PUT OPTIONS]
+    %W[GET HEAD PUT]
   end
   
   def content_types_provided
-    [["text/html", :to_html],["application/json", :to_json]]
+    [["text/html", :to_html],
+     ["application/json", :to_json]]
   end
 
   def content_types_accepted
@@ -47,7 +49,7 @@ class PageResource < Webmachine::Resource
   end
 
   def generate_etag
-    @page.robject.etag
+    Digest::MD5.hexdigest(@page.title + @page.content)
   end
   
   def to_html
@@ -62,13 +64,9 @@ class PageResource < Webmachine::Resource
     @page ||= Page.new.tap {|p| p.key = request.path_info[:slug] }
     @page.update_attributes(JSON.parse(request.body.to_s))
   end
-
-  private
-  def check_basic_password(creds)
-    creds.unpack('m*').first.split(/:/, 2) == %W[sean password]
-  end
 end
 
-Webmachine::Dispatcher.add_route [:slug], PageResource
-Webmachine::Dispatcher.add_route [], PageResource, :slug => "__root"
-Webmachine.run
+Webmachine.routes do
+  add [:slug], PageResource
+  add [], PageResource, :slug => "__root"
+end.run
