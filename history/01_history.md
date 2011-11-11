@@ -12,13 +12,6 @@
     puts
     puts "Hello, world!"
 
-!SLIDE bullets
-
-# WEBrick
-
-* A standalone server
-* "Servlet" interface
-
 !SLIDE
 
 # WEBrick
