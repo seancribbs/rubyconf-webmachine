@@ -25,7 +25,7 @@
       add [], PageResource
     end.run
 
-#### 1
+#### 1 (web)
 !SLIDE smaller
 
 # Create a layout
@@ -58,7 +58,7 @@
       $LAYOUT.result(binding)
     end
 
-#### 2
+#### 2 (web)
 !SLIDE small
 
 # Add a real model
@@ -88,7 +88,7 @@
       add [], PageResource, :slug => "__root"
     end.run
 
-#### 3
+#### 3 (web)
 
 !SLIDE small
 
@@ -104,7 +104,7 @@
       @page.attributes.to_json
     end
 
-#### 4
+#### 4 (web/httpc)
 
 !SLIDE small
 
@@ -122,7 +122,7 @@
                               @page.content)
     end
 
-#### 5
+#### 5 (httpc)
 
 !SLIDE smaller
 
@@ -145,7 +145,7 @@
       @page.update_attributes(attrs)
     end
 
-#### 6
+#### 6 (httpc)
 
 !SLIDE smaller
 
@@ -161,4 +161,4 @@
         end
     end
 
-#### 7
+#### 7 (httpc)
