@@ -3,8 +3,8 @@
 # Resources, <br /> For Real This Time
 ## [@seancribbs](http://twitter.com/seancribbs)
 
-RubyConf Uruguay <br />
-11 November 2011 
+NYC.rb <br />
+13 December 2011 
 
 !SLIDE
 
